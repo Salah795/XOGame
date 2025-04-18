@@ -5,7 +5,7 @@ import java.util.logging.Logger;
  * A supplied class for the Tic Tac Toe exercise in the OOP MOOC by the Hebrew University.
  * Renders a given part_2.Board to the console.
  *
- * @author Salah Mahmied
+ * @author Dan Nirel
  */
 public class ConsoleRenderer implements Renderer {
     private static final Character FIRST_ROW = '0';
