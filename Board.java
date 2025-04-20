@@ -1,5 +1,5 @@
 public class Board {
-    public static final int DEFAULT_BOARD_SIZE = 4;
+    private static final int DEFAULT_BOARD_SIZE = 4;
 
     private Mark[][] boardState;
     private int size;
