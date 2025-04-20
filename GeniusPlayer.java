@@ -1,5 +1,4 @@
 public class GeniusPlayer implements Player {
-    private static final int DEFAULT_WIN_STREAK = 3;
 
     private CleverPlayer cleverPlayer;
     private boolean useCleverPlayer;
@@ -10,7 +9,7 @@ public class GeniusPlayer implements Player {
         this.cleverPlayer = new CleverPlayer();
         this.useCleverPlayer = false;
         this.chosenRow = 0;
-        this.chosenColumn = DEFAULT_WIN_STREAK - 1;
+        this.chosenColumn = Game.DEFAULT_WIN_STREAK - 1;
     }
 
     @Override
