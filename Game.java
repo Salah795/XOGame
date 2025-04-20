@@ -1,6 +1,8 @@
 public class Game {
     //TODO check if it's legal for this exercise to make final variables public.
     public static final int DEFAULT_WIN_STREAK = 3;
+    private static final int DIAGONAL_DOWN_DIRECTION = -1;
+    private static final int DIAGONAL_UP_DIRECTION = 1;
 
     private Board gameBoard;
     private int winStreak;
@@ -33,38 +35,73 @@ public class Game {
     }
 
     public Mark run() {
-        this.playerX.playTurn(this.gameBoard, Mark.X);
-
+        //TODO check if this method implementation is right.
+        for(int turnsCounter = 0; turnsCounter < (this.getBoardSize() * this.getBoardSize()) / 2;
+            turnsCounter++) {
+            this.playerX.playTurn(this.gameBoard, Mark.X);
+            if(checkVerticalOrHorizontal(Mark.X, true) ||
+                    checkVerticalOrHorizontal(Mark.X, false)
+                    || checkDiagonallyDownOrUp(Mark.X, DIAGONAL_DOWN_DIRECTION) ||
+                    checkDiagonallyDownOrUp(Mark.X, DIAGONAL_UP_DIRECTION)) {
+                return Mark.X;
+            }
+            this.playerO.playTurn(this.gameBoard, Mark.O);
+            if(checkVerticalOrHorizontal(Mark.O, true) ||
+                    checkVerticalOrHorizontal(Mark.O, false)
+                    || checkDiagonallyDownOrUp(Mark.O, DIAGONAL_DOWN_DIRECTION) ||
+                    checkDiagonallyDownOrUp(Mark.O, DIAGONAL_UP_DIRECTION)) {
+                return Mark.O;
+            }
+        }
+        return Mark.BLANK;
     }
 
-    private boolean checkVerticalOrHorizontal(Mark mark) {
-        int outerIndex = 0;
-        int innerIndex = 0;
-        for(; outerIndex < this.getBoardSize(); outerIndex++) {
+    private boolean checkVerticalOrHorizontal(Mark mark, boolean vertical) {
+        //TODO check if this method implementation is right.
+        int row;
+        int column;
+        for(int outerIndex = 0; outerIndex < this.getBoardSize(); outerIndex++) {
             int currentStreak = 0;
-            for(int row = 0; row < this.getBoardSize(); row++) {
-                if(this.gameBoard.getMark(row, outerIndex).equals(mark)) {
+            for(int innerIndex = 0; innerIndex < this.getBoardSize(); innerIndex++) {
+                if(vertical) {
+                    row = innerIndex;
+                    column = outerIndex;
+                } else {
+                    row = outerIndex;
+                    column = innerIndex;
+                }
+                if(this.gameBoard.getMark(row, column).equals(mark)) {
                     currentStreak++;
                 }
             }
-            if(currentStreak == this.winStreak) {
+            if(currentStreak >= this.winStreak) {
                 return true;
             }
         }
         return false;
     }
 
-    private boolean checkHorizontal(Mark mark) {
+    private boolean checkDiagonallyDownOrUp(Mark mark, int direction) {
+        //TODO check if this method implementation is right.
+        Mark[] coordinatesList = new Mark[this.getBoardSize() * this.getBoardSize()];
+        int filledCoordinatesCounter = 0;
         for(int row = 0; row < this.getBoardSize(); row++) {
-            int currentStreak = 0;
             for(int column = 0; column < this.getBoardSize(); column++) {
-                if(this.gameBoard.getMark(row, column).equals(mark)) {
-                    currentStreak++;
-                }
-                if(currentStreak == this.winStreak) {
-                    return true;
-                }
+                coordinatesList[filledCoordinatesCounter] = this.gameBoard.getMark(row, column);
             }
         }
+        for(int index = 0; index < coordinatesList.length; index++) {
+            int currentStreak = 0;
+            for(int diagonalIndex = index; diagonalIndex < coordinatesList.length;
+                diagonalIndex += this.getBoardSize() + direction){
+                if(coordinatesList[diagonalIndex].equals(mark)){
+                    currentStreak++;
+                }
+            }
+            if(currentStreak >= this.winStreak) {
+                return true;
+            }
+        }
+        return false;
     }
 }
