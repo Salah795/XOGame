@@ -3,6 +3,7 @@ public class Game {
     public static final int DEFAULT_WIN_STREAK = 3;
     private static final int DIAGONAL_DOWN_DIRECTION = -1;
     private static final int DIAGONAL_UP_DIRECTION = 1;
+    private static final int PLAYERS_NUMBER = 2;
 
     private Board gameBoard;
     private int winStreak;
@@ -36,9 +37,10 @@ public class Game {
 
     public Mark run() {
         //TODO check if this method implementation is right.
-        for(int turnsCounter = 0; turnsCounter < (this.getBoardSize() * this.getBoardSize()) / 2;
+        for(int turnsCounter = 0; turnsCounter < (this.getBoardSize() * this.getBoardSize()) / PLAYERS_NUMBER;
             turnsCounter++) {
             this.playerX.playTurn(this.gameBoard, Mark.X);
+            this.renderer.renderBoard(this.gameBoard);
             if(checkVerticalOrHorizontal(Mark.X, true) ||
                     checkVerticalOrHorizontal(Mark.X, false)
                     || checkDiagonallyDownOrUp(Mark.X, DIAGONAL_DOWN_DIRECTION) ||
@@ -46,6 +48,7 @@ public class Game {
                 return Mark.X;
             }
             this.playerO.playTurn(this.gameBoard, Mark.O);
+            this.renderer.renderBoard(this.gameBoard);
             if(checkVerticalOrHorizontal(Mark.O, true) ||
                     checkVerticalOrHorizontal(Mark.O, false)
                     || checkDiagonallyDownOrUp(Mark.O, DIAGONAL_DOWN_DIRECTION) ||
