@@ -1,2 +1,3 @@
-public class GeniusPlayer {
+public class GeniusPlayer implements Player {
+    private
 }
