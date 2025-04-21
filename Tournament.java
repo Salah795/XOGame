@@ -1,4 +1,10 @@
 public class Tournament {
+    private static final int ROUNDS_INDEX = 0;
+    private static final int BOARD_SIZE_INDEX = 1;
+    private static final int WIN_STREAK_INDEX = 2;
+    private static final int RENDER_TARGET_INDEX = 3;
+    private static final int FIRST_PLAYER_NAME_INDEX = 4;
+    private static final int SECOND_PLAYER_NAME_INDEX = 5;
     private static final String TOURNAMENT_END_MESSAGE = "######### Results #########";
     private static final String FIRST_PLAYER_WINS_MESSAGE_FORMAT = "Player 1, %s won: %s rounds";
     private static final String SECOND_PLAYER_WINS_MESSAGE_FORMAT = "Player 2, %s won: %s rounds";
@@ -57,6 +63,57 @@ public class Tournament {
     }
 
     public static void main(String[] args) {
-
+        //TODO transfer the switch-case blocks in this method into factories.
+        int roundsNumber = Integer.parseInt(args[ROUNDS_INDEX]);
+        int boardSize = Integer.parseInt(args[BOARD_SIZE_INDEX]);
+        int tournamentWinStreak = Integer.parseInt(args[WIN_STREAK_INDEX]);
+        Renderer tournamentRenderer;
+        switch (args[RENDER_TARGET_INDEX]) {
+            case "void":
+                tournamentRenderer = new VoidRenderer();
+                break;
+            case "console":
+                tournamentRenderer = new ConsoleRenderer(boardSize);
+                break;
+            default:
+                tournamentRenderer = null;
+        }
+        Player firstPlayer;
+        switch (args[FIRST_PLAYER_NAME_INDEX]) {
+            case "human":
+                firstPlayer = new HumanPlayer();
+                break;
+            case "whatever":
+                firstPlayer = new WhateverPlayer();
+                break;
+            case "clever":
+                firstPlayer = new CleverPlayer();
+                break;
+            case "genius":
+                firstPlayer = new GeniusPlayer();
+                break;
+            default:
+                firstPlayer = null;
+        }
+        Player secondPlayer;
+        switch (args[SECOND_PLAYER_NAME_INDEX]) {
+            case "human":
+                secondPlayer = new HumanPlayer();
+                break;
+            case "whatever":
+                secondPlayer = new WhateverPlayer();
+                break;
+            case "clever":
+                secondPlayer = new CleverPlayer();
+                break;
+            case "genius":
+                secondPlayer = new GeniusPlayer();
+                break;
+            default:
+                secondPlayer = null;
+        }
+        Tournament tournament = new Tournament(roundsNumber, tournamentRenderer, firstPlayer, secondPlayer);
+        tournament.playTournament(boardSize, tournamentWinStreak, args[FIRST_PLAYER_NAME_INDEX],
+                args[SECOND_PLAYER_NAME_INDEX]);
     }
 }
