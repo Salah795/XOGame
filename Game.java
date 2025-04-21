@@ -1,6 +1,5 @@
 public class Game {
-    //TODO check if it's legal for this exercise to make final variables public.
-    public static final int DEFAULT_WIN_STREAK = 3;
+    private static final int DEFAULT_WIN_STREAK = 3;
     private static final int DIAGONAL_DOWN_DIRECTION = -1;
     private static final int DIAGONAL_UP_DIRECTION = 1;
     private static final int PLAYERS_NUMBER = 2;
@@ -36,7 +35,6 @@ public class Game {
     }
 
     public Mark run() {
-        //TODO check if this method implementation is right.
         for(int turnsCounter = 0; turnsCounter < (this.getBoardSize() * this.getBoardSize()) / PLAYERS_NUMBER;
             turnsCounter++) {
             this.playerX.playTurn(this.gameBoard, Mark.X);
@@ -60,7 +58,6 @@ public class Game {
     }
 
     private boolean checkVerticalOrHorizontal(Mark mark, boolean vertical) {
-        //TODO check if this method implementation is right.
         int row;
         int column;
         for(int outerIndex = 0; outerIndex < this.getBoardSize(); outerIndex++) {
@@ -85,7 +82,6 @@ public class Game {
     }
 
     private boolean checkDiagonallyDownOrUp(Mark mark, int direction) {
-        //TODO check if this method implementation is right.
         Mark[] coordinatesList = new Mark[this.getBoardSize() * this.getBoardSize()];
         int filledCoordinatesCounter = 0;
         for(int row = 0; row < this.getBoardSize(); row++) {

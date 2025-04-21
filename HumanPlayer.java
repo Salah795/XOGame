@@ -21,7 +21,6 @@ public class HumanPlayer implements Player {
         int userInputRow = userInputNumber / 10;
         int userInputColumn = userInputNumber % 10;
 
-        //TODO check if it's possible for the userInputNumber to be a number with three digits or more.
         if (userInputRow >= board.getSize() || userInputColumn >= board.getSize()) {
             System.out.print(INVALID_MARK_POSITION_MESSAGE);
             this.printInitialMessage = false;

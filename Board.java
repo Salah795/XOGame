@@ -2,31 +2,29 @@ public class Board {
     private static final int DEFAULT_BOARD_SIZE = 4;
 
     private Mark[][] boardState;
-    private int size;
+    private int boardSize;
 
     public Board() {
-        this.size = DEFAULT_BOARD_SIZE;
+        this.boardSize = DEFAULT_BOARD_SIZE;
         createEmptyBoard();
     }
 
     public Board(int size) {
-        this.size = size;
+        this.boardSize = size;
         createEmptyBoard();
     }
 
     public int getSize() {
-        return this.size;
+        return this.boardSize;
     }
 
     public boolean putMark(Mark mark, int row, int col) {
-        //TODO check if we really need to check the validity of the row and col values.
-        if (row < 0 || row >= this.size) {
+        if (row < 0 || row >= this.boardSize) {
             return false;
         }
-        if (col < 0 || col >= this.size) {
+        if (col < 0 || col >= this.boardSize) {
             return false;
         }
-        //TODO check if need to use '==' operator or equals() method .
         if (!this.getMark(row, col).equals(Mark.BLANK)) {
             return false;
         }
@@ -35,17 +33,17 @@ public class Board {
     }
 
     public Mark getMark(int row, int col) {
-        if (row < 0 || row >= this.size || col < 0 || col >= this.size) {
+        if (row < 0 || row >= this.boardSize || col < 0 || col >= this.boardSize) {
             return Mark.BLANK;
         }
         return this.boardState[row][col];
     }
 
     private void createEmptyBoard() {
-        this.boardState = new Mark[this.size][];
-        for (int row = 0; row < this.size; row++) {
-            this.boardState[row] = new Mark[this.size];
-            for (int column = 0; column < this.size; column++) {
+        this.boardState = new Mark[this.boardSize][];
+        for (int row = 0; row < this.boardSize; row++) {
+            this.boardState[row] = new Mark[this.boardSize];
+            for (int column = 0; column < this.boardSize; column++) {
                 this.boardState[row][column] = Mark.BLANK;
             }
         }

@@ -1,7 +1,7 @@
 import java.util.Random;
 
 public class CleverPlayer implements Player {
-    public static final int DEFAULT_WIN_STREAK = 3;
+    private static final int DEFAULT_WIN_STREAK = 3;
 
     private Random random;
 

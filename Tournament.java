@@ -63,8 +63,6 @@ public class Tournament {
     }
 
     public static void main(String[] args) {
-        //TODO transfer the switch-case blocks in this method into factories.
-        //TODO check if to put the strings in switch-case blocks into constants.
         int roundsNumber = Integer.parseInt(args[ROUNDS_INDEX]);
         int boardSize = Integer.parseInt(args[BOARD_SIZE_INDEX]);
         int tournamentWinStreak = Integer.parseInt(args[WIN_STREAK_INDEX]);
