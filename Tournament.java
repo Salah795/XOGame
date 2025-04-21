@@ -68,6 +68,7 @@ public class Tournament {
         int roundsNumber = Integer.parseInt(args[ROUNDS_INDEX]);
         int boardSize = Integer.parseInt(args[BOARD_SIZE_INDEX]);
         int tournamentWinStreak = Integer.parseInt(args[WIN_STREAK_INDEX]);
+        PlayerFactory playerFactory = new PlayerFactory();
         Renderer tournamentRenderer;
         switch (args[RENDER_TARGET_INDEX]) {
             case "void":
@@ -79,40 +80,8 @@ public class Tournament {
             default:
                 tournamentRenderer = null;
         }
-        Player firstPlayer;
-        switch (args[FIRST_PLAYER_NAME_INDEX]) {
-            case "human":
-                firstPlayer = new HumanPlayer();
-                break;
-            case "whatever":
-                firstPlayer = new WhateverPlayer();
-                break;
-            case "clever":
-                firstPlayer = new CleverPlayer();
-                break;
-            case "genius":
-                firstPlayer = new GeniusPlayer();
-                break;
-            default:
-                firstPlayer = null;
-        }
-        Player secondPlayer;
-        switch (args[SECOND_PLAYER_NAME_INDEX]) {
-            case "human":
-                secondPlayer = new HumanPlayer();
-                break;
-            case "whatever":
-                secondPlayer = new WhateverPlayer();
-                break;
-            case "clever":
-                secondPlayer = new CleverPlayer();
-                break;
-            case "genius":
-                secondPlayer = new GeniusPlayer();
-                break;
-            default:
-                secondPlayer = null;
-        }
+        Player firstPlayer = playerFactory.buildPlayer(args[FIRST_PLAYER_NAME_INDEX]);
+        Player secondPlayer = playerFactory.buildPlayer(args[SECOND_PLAYER_NAME_INDEX]);
         Tournament tournament = new Tournament(roundsNumber, tournamentRenderer, firstPlayer, secondPlayer);
         tournament.playTournament(boardSize, tournamentWinStreak, args[FIRST_PLAYER_NAME_INDEX],
                 args[SECOND_PLAYER_NAME_INDEX]);
