@@ -1,32 +1,28 @@
 import java.util.Random;
 
 public class CleverPlayer implements Player {
-    private int currentStreakLength;
+    public static final int DEFAULT_WIN_STREAK = 3;
+
     private Random random;
-    private int occupiedCoordinatesInFirstColumn;
 
     public CleverPlayer() {
         this.random = new Random();
-        this.currentStreakLength = 0;
-        this.occupiedCoordinatesInFirstColumn = 0;
     }
 
     @Override
     public void playTurn(Board board, Mark mark) {
-        //TODO check this function again.
-        int chosenRow = this.occupiedCoordinatesInFirstColumn;
-        int chosenColumn = this.currentStreakLength;
-        if(this.currentStreakLength == 0 && this.occupiedCoordinatesInFirstColumn < board.getSize()) {
-            this.occupiedCoordinatesInFirstColumn++;
+        for(int column = 0; column < DEFAULT_WIN_STREAK; column++) {
+            if(board.putMark(mark, 0, column)) {
+                return;
+            }
+            if(!board.getMark(0, column).equals(mark)) {
+                break;
+            }
         }
-        if(this.occupiedCoordinatesInFirstColumn >= board.getSize()) {
-            chosenRow = random.nextInt(board.getSize());
-            chosenColumn = random.nextInt(board.getSize());
+        int row = this.random.nextInt(board.getSize());
+        int column = this.random.nextInt(board.getSize());
+        if(!board.putMark(mark, row, column)) {
+            playTurn(board, mark);
         }
-        if(!board.putMark(mark, chosenRow, chosenColumn)) {
-            this.currentStreakLength = 0;
-            this.playTurn(board, mark);
-        }
-        this.currentStreakLength++;
     }
 }

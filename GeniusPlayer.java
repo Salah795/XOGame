@@ -1,29 +1,21 @@
 public class GeniusPlayer implements Player {
 
     private CleverPlayer cleverPlayer;
-    private boolean useCleverPlayer;
-    private int chosenRow;
-    private int chosenColumn;
 
     public GeniusPlayer() {
         this.cleverPlayer = new CleverPlayer();
-        this.useCleverPlayer = false;
-        this.chosenRow = 0;
-        this.chosenColumn = Game.DEFAULT_WIN_STREAK - 1;
     }
 
     @Override
     public void playTurn(Board board, Mark mark) {
-        if(!this.useCleverPlayer) {
-            if(!board.putMark(mark, this.chosenRow, this.chosenColumn)) {
-                this.useCleverPlayer = true;
-                this.playTurn(board, mark);
-            } else {
-                this.chosenRow++;
-                this.chosenColumn--;
+        for(int row = 0; row < 3; row++) {
+            for(int column = Game.DEFAULT_WIN_STREAK - 1; column >= 0; column--) {
+                if(!board.putMark(mark, row, column)) {
+                    if(!board.getMark(row, column).equals(mark)) {
+                        this.cleverPlayer.playTurn(board, mark);
+                    }
+                }
             }
-        } else {
-            this.cleverPlayer.playTurn(board, mark);
         }
     }
 }

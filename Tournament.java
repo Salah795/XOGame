@@ -36,14 +36,14 @@ public class Tournament {
             Game game = new Game(playerX, playerO, size, winStreak, this.renderer);
             Mark winnerMark = game.run();
             switch (winnerMark) {
-                case Mark.X:
+                case X:
                     if(round % 2 == 0) {
                         firstPlayerWinsCounter++;
                     } else {
                         secondPlayerWinsCounter++;
                     }
                     break;
-                case Mark.O:
+                case O:
                     if(round % 2 == 0) {
                         secondPlayerWinsCounter++;
                     } else {

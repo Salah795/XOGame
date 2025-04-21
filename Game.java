@@ -91,6 +91,7 @@ public class Game {
         for(int row = 0; row < this.getBoardSize(); row++) {
             for(int column = 0; column < this.getBoardSize(); column++) {
                 coordinatesList[filledCoordinatesCounter] = this.gameBoard.getMark(row, column);
+                filledCoordinatesCounter++;
             }
         }
         for(int index = 0; index < coordinatesList.length; index++) {
