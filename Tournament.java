@@ -69,17 +69,9 @@ public class Tournament {
         int boardSize = Integer.parseInt(args[BOARD_SIZE_INDEX]);
         int tournamentWinStreak = Integer.parseInt(args[WIN_STREAK_INDEX]);
         PlayerFactory playerFactory = new PlayerFactory();
+        RendererFactory rendererFactory = new RendererFactory();
         Renderer tournamentRenderer;
-        switch (args[RENDER_TARGET_INDEX]) {
-            case "void":
-                tournamentRenderer = new VoidRenderer();
-                break;
-            case "console":
-                tournamentRenderer = new ConsoleRenderer(boardSize);
-                break;
-            default:
-                tournamentRenderer = null;
-        }
+        tournamentRenderer = rendererFactory.buildRenderer(args[RENDER_TARGET_INDEX], boardSize);
         Player firstPlayer = playerFactory.buildPlayer(args[FIRST_PLAYER_NAME_INDEX]);
         Player secondPlayer = playerFactory.buildPlayer(args[SECOND_PLAYER_NAME_INDEX]);
         Tournament tournament = new Tournament(roundsNumber, tournamentRenderer, firstPlayer, secondPlayer);
