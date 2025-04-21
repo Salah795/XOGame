@@ -26,7 +26,7 @@ public class Board {
      * It receives the wanted board size as a parameter and
      * creates the board matrix with that size by calling
      * the createEmptyBoard() private method.
-     * @param size
+     * @param size The wanted board size.
      */
     public Board(int size) {
         this.boardSize = size;
