@@ -7,10 +7,11 @@
  * The goal of this strategy is to win at least 55% of the rounds in a XO game of 10,000 rounds
  * with boardSize = 4 and a winStreak = 3 against an object of type WhateverPlayer, and against
  * object of type CleverPlayer.
+ *
+ * @author Salah Mahmied.
  * @see WhateverPlayer
  * @see CleverPlayer
  * @see Player
- * @author Salah Mahmied.
  */
 public class GeniusPlayer implements Player {
     private static final int DEFAULT_WIN_STREAK = 3;

@@ -2,8 +2,9 @@
  * Class for defining a board with a specific size (which is a squared matrix) for the XO game for two
  * players.
  * The content of each point in the board matrix will be BLANK, X, or O from the Mark enum.
- * @see Mark
+ *
  * @author Salah Mahmied
+ * @see Mark
  */
 public class Board {
     private static final int DEFAULT_BOARD_SIZE = 4;

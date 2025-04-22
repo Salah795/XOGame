@@ -9,9 +9,10 @@ import java.util.Random;
  * try again to choose another coordinates randomly.
  * The goal of this strategy is to win at least 55% of the rounds in a XO game of 10,000 rounds
  * with boardSize = 4 and a winStreak = 3 against an object of type WhateverPlayer.
+ *
+ * @author Salah Mahmied.
  * @see WhateverPlayer
  * @see Player
- * @author Salah Mahmied.
  */
 public class CleverPlayer implements Player {
     private static final int DEFAULT_WIN_STREAK = 3;

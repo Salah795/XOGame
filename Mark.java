@@ -1,6 +1,7 @@
 /**
  * Enum that defines the possible mark in the game board.
  * The marks can be X, O, or BLANK.
+ *
  * @author Salah Mahmied.
  */
 public enum Mark{

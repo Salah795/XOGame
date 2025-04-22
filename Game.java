@@ -2,9 +2,10 @@
  * Class for defining the XO game objects with a board of a specific size (which is a squared matrix)
  * for two players.
  * The content of each point in the board matrix will be BLANK, X, or O from the Mark enum.
+ *
+ * @author Salah Mahmied
  * @see Board
  * @see Mark
- * @author Salah Mahmied
  */
 public class Game {
     private static final int DEFAULT_WIN_STREAK = 3;
