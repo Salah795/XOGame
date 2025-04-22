@@ -2,6 +2,7 @@
  * Class for defining the renderer factory which helps to
  * decide the renderer that should be created for the current game
  * based on the received string.
+ * It's implementing the Single Responsibility Principle (DIP).
  *
  * @author Salah Mahmied.
  */
