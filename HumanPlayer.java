@@ -9,6 +9,7 @@
  * if it didn't succeed (the chosen point is not BLANK or the chosen coordinates is illegal) it will
  * ask the user to enter another coordinates again.
  * @author Salah Mahmied.
+ * @see Player
  */
 public class HumanPlayer implements Player {
     private static final String INITIAL_MESSAGE_FORMAT = "Player %s, type coordinates: ";

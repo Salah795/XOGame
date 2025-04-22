@@ -9,6 +9,7 @@
  * object of type CleverPlayer.
  * @see WhateverPlayer
  * @see CleverPlayer
+ * @see Player
  * @author Salah Mahmied.
  */
 public class GeniusPlayer implements Player {

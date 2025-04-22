@@ -1,3 +1,6 @@
+/**
+ * Class for defining the XO game objects
+ */
 public class Game {
     private static final int DEFAULT_WIN_STREAK = 3;
     private static final int DIAGONAL_DOWN_DIRECTION = -1;

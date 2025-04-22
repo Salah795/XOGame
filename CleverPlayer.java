@@ -5,10 +5,12 @@ import java.util.Random;
  * Also, it implements the Player interface and implements it's strategy on the method playTurn()
  * the CleverPlayer strategy is to try to fill the first three points in the board matrix with his mark
  * and if the opponent have been filled one of them before the clever player he will change
- * his strategy and start to choose the points randomly.
+ * his strategy and start to choose the points randomly, and it didn't succeed it will
+ * try again to choose another coordinates randomly.
  * The goal of this strategy is to win at least 55% of the rounds in a XO game of 10,000 rounds
  * with boardSize = 4 and a winStreak = 3 against an object of type WhateverPlayer.
  * @see WhateverPlayer
+ * @see Player
  * @author Salah Mahmied.
  */
 public class CleverPlayer implements Player {
@@ -28,7 +30,8 @@ public class CleverPlayer implements Player {
      * This method override from the Player interface it implements the CleverPlayer strategy.
      * The strategy: to try to fill the first three points in the board matrix with his mark
      * and if the opponent have been filled one of them before the clever player he will change
-     * his strategy and start to choose the points randomly.
+     * his strategy and start to choose the points randomly, and it didn't succeed it will
+     * try again to choose another coordinates randomly.
      * The goal of this strategy is to win at least 55% of the rounds in a XO game of 10,000 rounds
      * with boardSize = 4 and a winStreak = 3 against an object of type WhateverPlayer.
      * @param board The current state of the game board.
