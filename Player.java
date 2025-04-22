@@ -13,7 +13,7 @@
 interface Player {
     /**
      * This method should be implemented in all the player types
-     * class. it receives the game board of type Board and the player mark of type Mark
+     * class. It receives the game board of type Board and the player mark of type Mark
      * and lets the player play his turn.
      * @param board The game board current state.
      * @param mark The player mark.
