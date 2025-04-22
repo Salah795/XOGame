@@ -23,5 +23,6 @@ and easier to work with. Polymorphism lets us treat all player types the same, s
 interchangeably without worrying about their implementation. Encapsulation keeps each player’s logic
 self contained, making it simple to update or change one player without affecting the rest of the program.
 Abstraction hides the complexity of the player class implementation, so the program only needs to focus on how
-to interact with their API. Overall, this approach keeps the design straightforward and flexible, making it easy
+to interact with their API.
+Overall, this approach keeps the design straightforward and flexible, making it easy
 to add new players or tweak existing ones without disrupting the entire system.
