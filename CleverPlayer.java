@@ -3,7 +3,7 @@ import java.util.Random;
 /**
  * Class for defining a clever player objects that works in a special strategy for the XO game.
  * Also, it implements the Player interface and implements it's strategy on the method playTurn()
- * the CleverPlayer strategy is to try to fill the first three points in the board matrix
+ * the CleverPlayer strategy is to try to fill the first three points in the board matrix with his mark
  * and if the opponent have been filled one of them before the clever player he will change
  * his strategy and start to choose the points randomly.
  * The goal of this strategy is to win at least 55% of the rounds in a XO game of 10,000 rounds
@@ -26,7 +26,7 @@ public class CleverPlayer implements Player {
 
     /**
      * This method override from the Player interface it implements the CleverPlayer strategy.
-     * The strategy: to try to fill the first three points in the board matrix
+     * The strategy: to try to fill the first three points in the board matrix with his mark
      * and if the opponent have been filled one of them before the clever player he will change
      * his strategy and start to choose the points randomly.
      * The goal of this strategy is to win at least 55% of the rounds in a XO game of 10,000 rounds
@@ -36,6 +36,7 @@ public class CleverPlayer implements Player {
      */
     @Override
     public void playTurn(Board board, Mark mark) {
+        //Tries to fill the first three points in the board matrix with his mark.
         for(int column = 0; column < DEFAULT_WIN_STREAK; column++) {
             if(board.putMark(mark, 0, column)) {
                 return;
@@ -44,6 +45,7 @@ public class CleverPlayer implements Player {
                 break;
             }
         }
+        //Changed the strategy and starts to choose the points randomly.
         int row = this.random.nextInt(board.getSize());
         int column = this.random.nextInt(board.getSize());
         if(!board.putMark(mark, row, column)) {
