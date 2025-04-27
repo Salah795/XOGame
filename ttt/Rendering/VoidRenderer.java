@@ -1,3 +1,7 @@
+package ttt.Rendering;
+
+import ttt.main.Board;
+
 /**
  * Class that defines the renderer of type void which will
  * not print the game board state in any stage of the game.

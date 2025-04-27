@@ -1,6 +1,8 @@
+package ttt.main;
+
 import java.util.Scanner;
 
-class KeyboardInput
+public class KeyboardInput
 {
     private static KeyboardInput keyboardInputObject = null;
     private Scanner scanner;

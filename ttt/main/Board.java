@@ -1,7 +1,9 @@
+package ttt.main;
+
 /**
  * Class for defining a board with a specific size (which is a squared matrix) for the XO game for two
  * players.
- * The content of each point in the board matrix will be BLANK, X, or O from the Mark enum.
+ * The content of each point in the board matrix will be BLANK, X, or O from the ttt.main.Mark enum.
  *
  * @author Salah Mahmied
  * @see Mark
@@ -13,7 +15,7 @@ public class Board {
     private int boardSize;
 
     /**
-     * The default constructor for the Board class that
+     * The default constructor for the ttt.main.Board class that
      * defines the board matrix with the default board size which is 4,
      * and creating the board matrix by calling the createEmptyBoard() private method.
      */
@@ -44,8 +46,8 @@ public class Board {
     }
 
     /**
-     * This method tries to put a given mark of type Mark which will
-     * be Mark.X, Mark.O, Mark.BLANK in a certain point in the
+     * This method tries to put a given mark of type ttt.main.Mark which will
+     * be ttt.main.Mark.X, ttt.main.Mark.O, ttt.main.Mark.BLANK in a certain point in the
      * board matrix with coordinate (row, col).
      * It will check first if the given coordinates are legal,
      * then it will check if the mark in the point with the given coordinates
@@ -77,7 +79,7 @@ public class Board {
     }
 
     /**
-     * Gets the Mark of the point with the given coordinates in the matrix.
+     * Gets the ttt.main.Mark of the point with the given coordinates in the matrix.
      * It will check first if the given coordinates are legal and if so it
      * will return the mark else it will return BLANK.
      * @param row The row index for the chosen point in the board matrix.

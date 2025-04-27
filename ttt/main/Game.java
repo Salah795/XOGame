@@ -1,7 +1,12 @@
+package ttt.main;
+
+import ttt.Rendering.Renderer;
+import ttt.player.Player;
+
 /**
  * Class for defining the XO game objects with a board of a specific size (which is a squared matrix)
  * for two players.
- * The content of each point in the board matrix will be BLANK, X, or O from the Mark enum.
+ * The content of each point in the board matrix will be BLANK, X, or O from the ttt.main.Mark enum.
  *
  * @author Salah Mahmied
  * @see Board

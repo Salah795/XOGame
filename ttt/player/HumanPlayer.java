@@ -1,3 +1,9 @@
+package ttt.player;
+
+import ttt.main.Board;
+import ttt.main.KeyboardInput;
+import ttt.main.Mark;
+
 /**
  * Class for defining a human player objects the XO game, by interacting with the user
  * and receiving his chosen coordinates from the console.
@@ -16,7 +22,7 @@ public class HumanPlayer implements Player {
     private static final String INITIAL_MESSAGE_FORMAT = "Player %s, type coordinates: ";
     private static final String INVALID_MARK_POSITION_MESSAGE = "Invalid mark position. Please choose a " +
             "valid position: ";
-    private static final String CHOOSING_OCCUPIED_POSITION_MESSAGE = "Mark position is already occupied. " +
+    private static final String CHOOSING_OCCUPIED_POSITION_MESSAGE = "ttt.main.Mark position is already occupied. " +
             "Please choose a valid position: ";
 
     //This variable helps to check if this is the first time for the human player to choose
@@ -24,7 +30,7 @@ public class HumanPlayer implements Player {
     private boolean printInitialMessage;
 
     /**
-     * The default constructor for the HumanPlayer class
+     * The default constructor for the ttt.player.HumanPlayer class
      * it will initialize the printInitialMessage boolean variable with true value.
      */
     public HumanPlayer() {

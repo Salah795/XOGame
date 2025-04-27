@@ -1,24 +1,24 @@
 salah.taher
 212001432
 
-1. WhateverPlayer strategy:
+1. ttt.player.WhateverPlayer strategy:
 is to choose the coordinates randomly and tries to put his mark
 in the game board in these coordinates, and if it didn't succeed it will try again with different
 coordinates that it will also choose randomly.
 
-CleverPlayer strategy:
+ttt.player.CleverPlayer strategy:
 to try to fill the first three points in the board matrix with his mark
 and if the opponent have been filled one of them before the clever player he will change
 his strategy and start to choose the points randomly, and it didn't succeed it will
 try again to choose another coordinates randomly.
 
-GeniusPlayer strategy:
+ttt.player.GeniusPlayer strategy:
 to try to fill the diagonal of the coordinates (0,2), (1,1), (2,0)
 with his mark, if the opponent have been filled one of them before the clever player
-he will change his strategy and start to use the CleverPlayer strategy.
+he will change his strategy and start to use the ttt.player.CleverPlayer strategy.
 
 
-2. Using a shared interface like `Player` makes the design of the program cleaner
+2. Using a shared interface like `ttt.player.Player` makes the design of the program cleaner
 and easier to work with. Polymorphism lets us treat all player types the same, so we can use them
 interchangeably without worrying about their implementation. Encapsulation keeps each player’s logic
 self contained, making it simple to update or change one player without affecting the rest of the program.

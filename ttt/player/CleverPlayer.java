@@ -1,14 +1,19 @@
+package ttt.player;
+
+import ttt.main.Board;
+import ttt.main.Mark;
+
 import java.util.Random;
 
 /**
  * Class for defining a clever player objects that works in a special strategy for the XO game.
- * Also, it implements the Player interface and implements it's strategy on the method playTurn()
- * the CleverPlayer strategy is to try to fill the first three points in the board matrix with his mark
+ * Also, it implements the ttt.player.Player interface and implements it's strategy on the method playTurn()
+ * the ttt.player.CleverPlayer strategy is to try to fill the first three points in the board matrix with his mark
  * and if the opponent have been filled one of them before the clever player he will change
  * his strategy and start to choose the points randomly, and it didn't succeed it will
  * try again to choose another coordinates randomly.
  * The goal of this strategy is to win at least 55% of the rounds in a XO game of 10,000 rounds
- * with boardSize = 4 and a winStreak = 3 against an object of type WhateverPlayer.
+ * with boardSize = 4 and a winStreak = 3 against an object of type ttt.player.WhateverPlayer.
  *
  * @author Salah Mahmied.
  * @see WhateverPlayer
@@ -20,7 +25,7 @@ public class CleverPlayer implements Player {
     private Random random;
 
     /**
-     * The default constructor for the CleverPlayer class
+     * The default constructor for the ttt.player.CleverPlayer class
      * it will initialize the random property.
      */
     public CleverPlayer() {
@@ -28,13 +33,13 @@ public class CleverPlayer implements Player {
     }
 
     /**
-     * This method override from the Player interface it implements the CleverPlayer strategy.
+     * This method override from the ttt.player.Player interface it implements the ttt.player.CleverPlayer strategy.
      * The strategy: to try to fill the first three points in the board matrix with his mark
      * and if the opponent have been filled one of them before the clever player he will change
      * his strategy and start to choose the points randomly, and it didn't succeed it will
      * try again to choose another coordinates randomly.
      * The goal of this strategy is to win at least 55% of the rounds in a XO game of 10,000 rounds
-     * with boardSize = 4 and a winStreak = 3 against an object of type WhateverPlayer.
+     * with boardSize = 4 and a winStreak = 3 against an object of type ttt.player.WhateverPlayer.
      * @param board The current state of the game board.
      * @param mark The mark of the clever player.
      */

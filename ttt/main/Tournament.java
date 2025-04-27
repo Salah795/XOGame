@@ -1,8 +1,15 @@
+package ttt.main;
+
+import ttt.Rendering.Renderer;
+import ttt.Rendering.RendererFactory;
+import ttt.player.Player;
+import ttt.player.PlayerFactory;
+
 /**
- * Class for defining the Tournament for the XO game with a board object from
- * class Board of a specific size (which is a squared matrix)
+ * Class for defining the ttt.main.Tournament for the XO game with a board object from
+ * class ttt.main.Board of a specific size (which is a squared matrix)
  * for two players and a specific number of rounds.
- * The content of each point in the board matrix will be BLANK, X, or O from the Mark enum.
+ * The content of each point in the board matrix will be BLANK, X, or O from the ttt.main.Mark enum.
  *
  * @author Salah Mahmied
  * @see Board
@@ -26,9 +33,9 @@ public class Tournament {
     private Player secondPlayer;
 
     /**
-     * The constructor for defining a Tournament, with receiving the number of rounds,
+     * The constructor for defining a ttt.main.Tournament, with receiving the number of rounds,
      * renderer,and the two players as parameters.
-     * @param rounds The number of rounds in the Tournament.
+     * @param rounds The number of rounds in the ttt.main.Tournament.
      * @param renderer The game renderer.
      * @param player1 The first player of the game.
      * @param player2 The second player of the game.

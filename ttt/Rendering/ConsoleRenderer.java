@@ -1,9 +1,14 @@
+package ttt.Rendering;
+
+import ttt.main.Board;
+import ttt.main.Mark;
+
 import java.util.Map;
 import java.util.logging.Logger;
 
 /**
  * A supplied class for the Tic Tac Toe exercise in the OOP MOOC by the Hebrew University.
- * Renders a given part_2.Board to the console.
+ * Renders a given part_2.ttt.main.Board to the console.
  *
  * @author Dan Nirel
  */
@@ -48,7 +53,7 @@ public class ConsoleRenderer implements Renderer {
         this.buffer = new char[bufferRows][bufferCols];
 
         if (size > 9 || size < 2) {
-            String errorMsg = "part_2.Board size must be in the range [2, 9]";
+            String errorMsg = "part_2.ttt.main.Board size must be in the range [2, 9]";
             Logger.getGlobal().severe(errorMsg);
             throw new Error(errorMsg);
         }
